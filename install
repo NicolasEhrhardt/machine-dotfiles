@@ -1,0 +1,36 @@
+#!/bin/bash
+
+dirDotfiles=~/.dotfiles/
+dirConfig=${dirDotfiles}config/
+dirBackup=${dirDotfiles}backup/
+pathConfig=${dirDotfiles}select.cfg
+
+#for all folders that are in the config
+while read line
+do
+if [ -d ${dirConfig}${line} ]
+then
+  echo "Processing $line"
+  prefix="--"
+  for file in `ls -A ${dirConfig}${line}`
+  do
+    #backup
+    echo "${prefix}> $file"
+    subprefix=${prefix}--
+    if [ -e ~/.$file -o -h ~/.$file ]
+    then
+      #remove backup if exists
+      if [ -e ${dirBackup}.${file} ]
+      then
+        echo "${subprefix}> Removing backup"
+        rm -Rf ${dirBackup}.${file}
+      fi
+      echo "${subprefix}> Backing up"
+      mv -f ~/.$file $dirBackup
+    fi
+
+    echo "${subprefix}> Symlinking"
+    ln -s ${dirConfig}${line}/$file ~/.$file
+  done  
+fi
+done < $pathConfig

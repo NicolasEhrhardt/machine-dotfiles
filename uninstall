@@ -1,0 +1,12 @@
+#!/bin/bash
+
+dirBackup=~/.dotfiles/backup
+
+for file in `ls -A $dirBackup`
+do
+  if [ -e ~/$file ]
+  then
+    rm -Rf ~/$file
+  fi
+  mv -f $dirBackup/$file ~/
+done

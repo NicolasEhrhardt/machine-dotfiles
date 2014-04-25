@@ -1,0 +1,38 @@
+# .( screenrc ). for _why :: * supports xterm/rxvt titles
+#                            * default encoding is utf-8 (i use urxvt with this)
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+
+autodetach            on
+crlf                  off
+deflogin              off
+hardcopy_append       on
+
+startup_message       off
+vbell                 off
+
+defscrollback         10000
+silencewait           15
+
+# enable 256 color (mostly for vim)
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+attrcolor b ".I"
+defhstatus "$USER@H | # | t"
+hardstatus off
+
+activity "%c activity -> %n%f %t"
+bell "%c bell -> %n%f %t^G"
+vbell_msg " *beep* "
+caption always " %m%d %c |  %w"
+
+bind ~ activity       "%c activity -> %n%f %t"
+bind * activity       "%c activity -> %n%f %t"
+
+# for launching some of the stuff i use most
+
+shell                 zsh
+
+# no uglys vim windows when quitting vim
+altscreen on
+
+defbce "on"

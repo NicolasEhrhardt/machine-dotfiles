@@ -1,0 +1,160 @@
+""""""""""
+" Vundle "
+""""""""""
+
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+"" Vundle required
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"" starting Vundle
+
+Bundle 'gmarik/vundle'
+
+"" UI improvements
+
+Bundle 'othree/html5.vim'
+"""""""""""""""""""""""""""""""""
+" HTML5 highlighings
+
+Bundle 'Lokaltog/vim-powerline'
+"""""""""""""""""""""""""""""""""
+" > Power status bar
+" enable fonts
+let g:Powerline_symbols = 'fancy'
+" enable colors
+set t_Co=256
+"""""""""""""""""""""""""""""""""
+
+Bundle 'scrooloose/nerdtree'
+""""""""""""""""""""""""""""""""""
+" > Left navigation tree
+" + fixes
+set modifiable
+let NERDTreeIgnore = ['\.pyc$']
+" Shortcut Toggle
+map <F2> :NERDTreeToggle<CR>
+" Show hidden files
+let NERDTreeShowHidden=1
+
+noremap fc <Esc>:call CleanClose(1)
+noremap fq <Esc>:call CleanClose(0)
+
+function! CleanClose(tosave)
+if (a:tosave == 1)
+  w!
+  endif
+  let todelbufNr = bufnr("%")
+  let newbufNr = bufnr("#")
+if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
+  exe "b".newbufNr
+  else
+  bnext
+  endif
+
+  if (bufnr("%") == todelbufNr)
+  new
+  endif
+  exe "bd".todelbufNr
+call Buftabs_show()
+endfunction
+"""""""""""""""""""""""""""""""""
+
+Bundle 'jistr/vim-nerdtree-tabs'
+""""""""""""""""""""""""""""""""
+" > plugin of nerdtree for better integration
+let g:nerdtree_tabs_open_on_console_startup=1
+""""""""""""""""""""""""""""""""
+
+
+Bundle 'nathanaelkane/vim-indent-guides'
+"""""""""""""""""""""""""""""""""
+" > Vertical lines for each tab level
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=darkgrey
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=black
+" start plugin
+autocmd VimEnter * :IndentGuidesEnable
+"""""""""""""""""""""""""""""""""
+
+
+Bundle 'Rykka/colorv.vim'
+"""""""""""""""""""""""""""""""""
+" > Color picker
+"""""""""""""""""""""""""""""""""
+
+Bundle 'mhinz/vim-signify'
+"""""""""""""""""""""""""""""""""
+" > Compare changes between commits
+"""""""""""""""""""""""""""""""""
+
+Bundle 'scrooloose/nerdcommenter'
+"""""""""""""""""""""""""""""""""
+" > smart commenter
+" <leader>cc
+"""""""""""""""""""""""""""""""""
+
+Bundle 'kien/ctrlp.vim'
+"""""""""""""""""""""""""""""""""
+" > smart file lookup
+" Change binding
+let g:ctrlp_map = '<F3>'
+"""""""""""""""""""""""""""""""""
+
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'godlygeek/tabular'
+Bundle 'wavded/vim-stylus'
+
+"---------- Themes --------------
+
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'altercation/vim-colors-solarized'
+"""""""""""""""""""""""""""""""""
+" > Color scheme for vim
+colorscheme jellybeans
+syntax enable
+let g:solarized_termcolors=256
+set background=dark
+" colorscheme solarized
+"""""""""""""""""""""""""""""""""
+
+"" Vundle required
+filetype plugin on
+
+""""""""""""""
+" Vim config "
+""""""""""""""
+let mapleader="m"
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set smarttab
+set autochdir
+
+set lbr
+" this is mostly a matter of taste. but LaTeX looks good with just a bit
+" of indentation.
+
+set wrap      " wrap lines
+set t_Co=256
+set mouse=a   " mouse control
+set invpaste  " fix indent pasting
+set number    " display line numbers
+
+set expandtab " tab creates spaces instead of \t
+set ai        " autoindent
+set si        " smartindent
+set ts=2      " tabstop: number of characters of a tab
+set sw=2      " shiftwidth: number of characters when using expandtab
+set sts=2     " softtabstop:
+
+" vim tricks
+" ----------
+
+" Fixing XML
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
