@@ -42,9 +42,15 @@ export PYTHONPATH=$PYTHONPATH:~/Code/python/packages
 export WORKON_HOME=~/.env
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Java things
+export JAVA_HOME=/usr
+
 # Hadoop things
 export HADOOP_CONF_DIR=/etc/hadoop-2.0.0-cdh4.5.0/etc/hadoop-mapreduce1
 export HADOOP_USER_NAME=cloudera
+
+# MTurk things
+export MTURK_CMD_HOME=/home/nicolas/tmp/aws-mturk-clt-1.3.1
 
 # -------------------------------------------------------------------
 # Aliases

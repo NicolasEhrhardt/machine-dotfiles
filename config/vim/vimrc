@@ -39,27 +39,9 @@ map <F2> :NERDTreeToggle<CR>
 " Show hidden files
 let NERDTreeShowHidden=1
 
-noremap fc <Esc>:call CleanClose(1)
-noremap fq <Esc>:call CleanClose(0)
-
-function! CleanClose(tosave)
-if (a:tosave == 1)
-  w!
-  endif
-  let todelbufNr = bufnr("%")
-  let newbufNr = bufnr("#")
-if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
-  exe "b".newbufNr
-  else
-  bnext
-  endif
-
-  if (bufnr("%") == todelbufNr)
-  new
-  endif
-  exe "bd".todelbufNr
-call Buftabs_show()
-endfunction
+" hide at startup
+autocmd vimenter * NERDTree
+autocmd vimenter * NERDTreeToggle
 """""""""""""""""""""""""""""""""
 
 Bundle 'jistr/vim-nerdtree-tabs'

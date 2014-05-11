@@ -1,2 +1,7 @@
+# vim
+*~
+*.swp
+
+# sensitive folder
 ssh/
 bundle/
