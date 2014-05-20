@@ -50,6 +50,12 @@ Bundle 'jistr/vim-nerdtree-tabs'
 let g:nerdtree_tabs_open_on_console_startup=1
 """"""""""""""""""""""""""""""""
 
+Bundle 'ervandew/supertab'
+""""""""""""""""""""""""""
+" > plugin for using tab in auto complete
+"let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+""""""""""""""""""""""""""
 
 Bundle 'nathanaelkane/vim-indent-guides'
 """""""""""""""""""""""""""""""""
@@ -72,6 +78,7 @@ Bundle 'Rykka/colorv.vim'
 Bundle 'mhinz/vim-signify'
 """""""""""""""""""""""""""""""""
 " > Compare changes between commits
+" http://vimcasts.org/blog/2011/05/the-fugitive-series/
 """""""""""""""""""""""""""""""""
 
 Bundle 'scrooloose/nerdcommenter'
@@ -85,6 +92,35 @@ Bundle 'kien/ctrlp.vim'
 " > smart file lookup
 " Change binding
 let g:ctrlp_map = '<F3>'
+"""""""""""""""""""""""""""""""""
+
+Bundle 'scrooloose/syntastic'
+"""""""""""""""""""""""""""""""""
+" > Syntax checker
+"""""""""""""""""""""""""""""""""
+
+Bundle 'kevinw/pyflakes-vim'
+"""""""""""""""""""""""""""""""""
+" > Python syntax checker
+"""""""""""""""""""""""""""""""""
+
+Bundle 'majutsushi/tagbar'
+"""""""""""""""""""""""""""""""""
+" > Analyze code objects
+let g:tagbar_usearrows = 1
+nnoremap <F8> :TagbarToggle<CR>
+"""""""""""""""""""""""""""""""""
+
+Bundle 'Raimondi/delimitMate'
+"""""""""""""""""""""""""""""""""
+" > autocomplete brackets, parenthesis, ...
+"""""""""""""""""""""""""""""""""
+
+Bundle 'docunext/closetag.vim'
+"""""""""""""""""""""""""""""""""
+" > Auto-close HTML tags
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 """""""""""""""""""""""""""""""""
 
 Bundle 'tpope/vim-surround'
@@ -103,7 +139,14 @@ syntax enable
 let g:solarized_termcolors=256
 set background=dark
 " colorscheme solarized
-"""""""""""""""""""""""""""""""""
+
+""""""""""""""
+" Vim tricks "
+"""""""""""""" 
+set nopaste   " to avoid problems with plugins
+
+
+""""""""""""""
 
 "" Vundle required
 filetype plugin on
@@ -112,10 +155,7 @@ filetype plugin on
 " Vim config "
 """"""""""""""
 let mapleader="m"
-set expandtab
-set shiftwidth=2
-set tabstop=2
-set smarttab
+"set smarttab
 set autochdir
 
 set lbr
@@ -130,13 +170,11 @@ set number    " display line numbers
 
 set expandtab " tab creates spaces instead of \t
 set ai        " autoindent
-set si        " smartindent
+"set si        " smartindent
 set ts=2      " tabstop: number of characters of a tab
 set sw=2      " shiftwidth: number of characters when using expandtab
 set sts=2     " softtabstop:
 
-" vim tricks
-" ----------
-
+au FileType python setl shiftwidth=2 tabstop=2 shiftwidth=2 softtabstop=2 
 " Fixing XML
-au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+"au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
