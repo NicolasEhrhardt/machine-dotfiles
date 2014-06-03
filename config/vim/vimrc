@@ -143,10 +143,12 @@ set background=dark
 """"""""""""""
 " Vim tricks "
 """""""""""""" 
-set nopaste   " to avoid problems with plugins
+let mapleader="g"
 
-
-""""""""""""""
+"""""""""""""""""""""""""""""""""""
+" Search and replace current word "
+"""""""""""""""""""""""""""""""""""
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 "" Vundle required
 filetype plugin on
@@ -154,7 +156,6 @@ filetype plugin on
 """"""""""""""
 " Vim config "
 """"""""""""""
-let mapleader="m"
 "set smarttab
 set autochdir
 
@@ -166,6 +167,7 @@ set wrap      " wrap lines
 set t_Co=256
 set mouse=a   " mouse control
 set invpaste  " fix indent pasting
+set nopaste   " to avoid problems with plugins
 set number    " display line numbers
 
 set expandtab " tab creates spaces instead of \t
