@@ -5,6 +5,8 @@ dirConfig=${dirDotfiles}config/
 dirBackup=${dirDotfiles}backup/
 pathConfig=${dirDotfiles}select.cfg
 
+mkdir -p $dirBackup
+
 #for all folders that are in the config
 while read line
 do
