@@ -46,7 +46,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export JAVA_HOME=/usr
 
 # Hadoop things
-export HADOOP_CONF_DIR=/etc/hadoop-2.0.0-cdh4.5.0/etc/hadoop-mapreduce1
+export HADOOP_CON_DIR=/etc/hadoop-2.0.0-cdh4.5.0/etc/hadoop-mapreduce1
 export HADOOP_USER_NAME=cloudera
 
 # MTurk things
@@ -91,4 +91,8 @@ alias matrun='matlab -nosplash -nodesktop'
 function cs () {
   cd $1
   ls
+}
+
+function greprec () {
+  find $1 -print0 | xargs -0 grep -l $2
 }

@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/nicolas/tmp'
 let g:netrw_dirhist_2='/home/nicolas/tmp/aws-mturk-clt-1.3.1'
 let g:netrw_dirhist_3='/home/nicolas/tmp/aws-mturk-clt-1.3.1/bin'
 let g:netrw_dirhist_4='/home/nicolas/Projects/SISL/client/javascripts'
+let g:netrw_dirhist_5='/Users/nicolas'
+let g:netrw_dirhist_6='/Users'

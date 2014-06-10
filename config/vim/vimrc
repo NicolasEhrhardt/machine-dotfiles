@@ -6,12 +6,12 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 "" Vundle required
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 "" starting Vundle
 
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 "" UI improvements
 
@@ -35,7 +35,7 @@ Bundle 'scrooloose/nerdtree'
 set modifiable
 let NERDTreeIgnore = ['\.pyc$']
 " Shortcut Toggle
-map <F2> :NERDTreeToggle<CR>
+map <F5> :NERDTreeToggle<CR>
 " Show hidden files
 let NERDTreeShowHidden=1
 
@@ -91,7 +91,7 @@ Bundle 'kien/ctrlp.vim'
 """""""""""""""""""""""""""""""""
 " > smart file lookup
 " Change binding
-let g:ctrlp_map = '<F3>'
+let g:ctrlp_map = '<F6>'
 """""""""""""""""""""""""""""""""
 
 Bundle 'scrooloose/syntastic'
