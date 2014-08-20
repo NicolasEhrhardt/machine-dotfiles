@@ -35,15 +35,19 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/etc/hadoop-2.0.0-cdh4.5.0/bin-mapreduce1
+
+# for macports
+export PATH=$PATH:/opt/local/bin
+export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 
 # Python things
 export PYTHONPATH=$PYTHONPATH:~/Code/python/packages
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 export WORKON_HOME=~/.env
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Java things
-export JAVA_HOME=/usr
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home
 
 # Hadoop things
 export HADOOP_CON_DIR=/etc/hadoop-2.0.0-cdh4.5.0/etc/hadoop-mapreduce1
@@ -96,3 +100,4 @@ function cs () {
 function greprec () {
   find $1 -print0 | xargs -0 grep -l $2
 }
+
