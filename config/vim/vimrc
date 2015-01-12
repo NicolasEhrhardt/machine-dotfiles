@@ -7,7 +7,7 @@ filetype off                   " required!
 
 "" Vundle required
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+call vundle#begin()
 
 "" starting Vundle
 
@@ -139,9 +139,6 @@ Bundle 'JuliaLang/julia-vim'
 
 "---------- Themes --------------
 
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'altercation/vim-colors-solarized'
-"""""""""""""""""""""""""""""""""
 " > Color scheme for vim
 colorscheme jellybeans
 syntax enable
@@ -149,6 +146,9 @@ let g:solarized_termcolors=256
 set background=dark
 " colorscheme solarized
 
+"" Vundle required
+call vundle#end()
+filetype plugin on
 
 """"""""""""""
 " Vim tricks "
@@ -159,9 +159,6 @@ let mapleader="g"
 " Search and replace current word "
 """""""""""""""""""""""""""""""""""
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-
-"" Vundle required
-filetype plugin on
 
 """"""""""""""
 " Vim config "
