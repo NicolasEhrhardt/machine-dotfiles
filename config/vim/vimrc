@@ -132,12 +132,35 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 """""""""""""""""""""""""""""""""
 
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
-Bundle 'wavded/vim-stylus'
-Bundle 'JuliaLang/julia-vim'
+"""""""""""""""""""""""""""
+" > cst" to surround text w/ quotes
+"""""""""""""""""""""""""""
 
-"---------- Themes --------------
+Bundle 'tpope/vim-fugitive'
+"""""""""""""""""""""""""""
+" > Git integration
+"""""""""""""""""""""""""""
+
+Bundle 'godlygeek/tabular'
+""""""""""""""""""""""""""
+" > Align text based on delimiter
+""""""""""""""""""""""""""
+
+" ------ Language specific -----
+
+Bundle 'wavded/vim-stylus'
+""""""""""""""""""""""""""
+" > Stylus integration
+""""""""""""""""""""""""""
+
+Bundle 'JuliaLang/julia-vim'
+""""""""""""""""""""""""""""
+" > Julia integration
+""""""""""""""""""""""""""""
+
+" -------- Vim apps ----------
+
+" ---------- Themes ----------
 
 " > Color scheme for vim
 colorscheme jellybeans
