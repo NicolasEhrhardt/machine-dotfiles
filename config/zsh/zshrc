@@ -34,7 +34,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-if [ -f $HOME/.pathrc ]; then
+if [ -f $HOME/.customrc ]; then
   source $HOME/.customrc
 fi
 
