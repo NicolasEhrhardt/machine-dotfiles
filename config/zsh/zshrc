@@ -34,7 +34,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.pathrc
+if [ -f $HOME/.pathrc ]; then
+  source $HOME/.customrc
+fi
 
 # -------------------------------------------------------------------
 # Aliases
@@ -65,9 +67,6 @@ alias glg='git lg'
 
 ## Tmux
 alias tmux='tmux -2'
-
-## Matlab
-alias matrun='matlab -nosplash -nodesktop'
 
 ## Funcions
 
