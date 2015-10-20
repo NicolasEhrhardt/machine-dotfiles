@@ -3,7 +3,7 @@
 dirDotfiles=~/.dotfiles/
 dirConfig=${dirDotfiles}config/
 dirBackup=${dirDotfiles}backup/
-pathConfig=${dirDotfiles}select.cfg
+pathConfig=$1
 
 mkdir -p $dirBackup
 
