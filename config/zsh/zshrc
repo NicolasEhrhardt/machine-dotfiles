@@ -32,9 +32,9 @@ ZSH_THEME="bureau"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+source $HOME/.customrc
 
-source $HOME/.pathrc
+source $ZSH/oh-my-zsh.sh
 
 # -------------------------------------------------------------------
 # Aliases
@@ -65,9 +65,6 @@ alias glg='git lg'
 
 ## Tmux
 alias tmux='tmux -2'
-
-## Matlab
-alias matrun='matlab -nosplash -nodesktop'
 
 ## Funcions
 
