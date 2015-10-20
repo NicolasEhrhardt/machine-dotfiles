@@ -7,21 +7,31 @@ pathConfig=$1
 
 mkdir -p $dirBackup
 
-#for all folders that are in the config
+# For all folders that are in the config.
 while read line
 do
 if [ -d ${dirConfig}${line} ]
 then
   echo "Processing $line"
   prefix="--"
+  
+  if [ -e ${dirConfig}${line}.pre ]
+  then
+    echo "${prefix}> Execution pre actions.."
+    sh "${dirConfig}${line}.pre"
+    continue
+  fi
+
+  # Per file copying logic.
   for file in `ls -A ${dirConfig}${line}`
   do
-    #backup
+    # Backup.
     echo "${prefix}> $file"
     subprefix=${prefix}--
+    
     if [ -e ~/.$file -o -h ~/.$file ]
     then
-      #remove backup if exists
+      # Remove backup if exists.
       if [ -e ${dirBackup}.${file} ]
       then
         echo "${subprefix}> Removing backup"
@@ -31,8 +41,17 @@ then
       mv -f ~/.$file $dirBackup
     fi
 
+    # Symlinking.
     echo "${subprefix}> Symlinking"
     ln -s ${dirConfig}${line}/$file ~/.$file
+
   done  
+
+  if [ -e ${dirConfig}${line}.post ]
+  then
+    echo "${prefix}> Execution post actions.."
+    sh "${dirConfig}${line}.post"
+  fi
+
 fi
 done < $pathConfig

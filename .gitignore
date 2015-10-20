@@ -3,6 +3,5 @@
 *.swp
 .netrwhist
 
-# sensitive folder
-ssh/
 bundle/
+backup/
