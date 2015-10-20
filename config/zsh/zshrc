@@ -32,7 +32,9 @@ ZSH_THEME="bureau"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
-source $HOME/.customrc
+if [ -f $HOME/.customrc ]; then
+  source $HOME/.customrc
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,30 +42,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 # -------------------------------------------------------------------
 
-## Git
-
-alias ga='git add -A'
-alias gps='git push'
-alias gl='git log'
-alias gs='git status'
-alias gd='git diff'
-alias gc='git commit -m'
-alias gca='git commit -am'
-alias gb='git branch'
-alias gco='git checkout'
-alias gra='git remote add'
-alias grr='git remote rm'
-alias gpl='git pull'
-alias gcl='git clone'
-alias gta='git tag -a -m'
-alias gf='git reflog'
-# leverage an alias from the ~/.gitconfig
-alias gh='git hist'
-alias glg1='git lg1'
-alias glg2='git lg2'
-alias glg='git lg' 
-
-## Tmux
+## Tmux with colors!
 alias tmux='tmux -2'
 
 ## Funcions
