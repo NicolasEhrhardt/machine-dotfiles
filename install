@@ -19,7 +19,6 @@ then
   then
     echo "${prefix}> Execution pre actions.."
     sh "${dirConfig}${line}.pre"
-    continue
   fi
 
   # Per file copying logic.
