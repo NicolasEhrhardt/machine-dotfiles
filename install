@@ -54,3 +54,4 @@ then
 
 fi
 done < $pathConfig
+echo "All dotfiles installed"
