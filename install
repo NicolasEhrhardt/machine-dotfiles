@@ -3,55 +3,52 @@
 dirDotfiles=~/.dotfiles/
 dirConfig=${dirDotfiles}config/
 dirBackup=${dirDotfiles}backup/
-pathConfig=$1
 
 mkdir -p $dirBackup
 
 # For all folders that are in the config.
-while read line
+for config in "$@"
 do
-if [ -d ${dirConfig}${line} ]
-then
-  echo "Processing $line"
+  if [ ! -d ${dirConfig}$config ]
+  then
+    echo "[$config] No config file found."
+    continue
+  fi
+
+  echo "[$config] Installing."
   prefix="--"
   
-  if [ -e ${dirConfig}${line}.pre ]
+  if [ -e ${dirConfig}$config.pre ]
   then
-    echo "${prefix}> Execution pre actions.."
-    sh "${dirConfig}${line}.pre"
+    echo "[$config] Executing pre actions."
+    ( sh "${dirConfig}$config.pre" )
   fi
 
   # Per file copying logic.
-  for file in `ls -A ${dirConfig}${line}`
+  for file in `ls -A ${dirConfig}$config`
   do
     # Backup.
-    echo "${prefix}> $file"
-    subprefix=${prefix}--
-    
     if [ -e ~/.$file -o -h ~/.$file ]
     then
       # Remove backup if exists.
       if [ -e ${dirBackup}.${file} ]
       then
-        echo "${subprefix}> Removing backup"
+        echo "[$config] Removing backup."
         rm -Rf ${dirBackup}.${file}
       fi
-      echo "${subprefix}> Backing up"
+      echo "[$config] Backing up."
       mv -f ~/.$file $dirBackup
     fi
 
     # Symlinking.
-    echo "${subprefix}> Symlinking"
-    ln -s ${dirConfig}${line}/$file ~/.$file
+    echo "[$config] Symlinking new config file [.$file]."
+    ln -s ${dirConfig}$config/$file ~/.$file
 
   done  
 
-  if [ -e ${dirConfig}${line}.post ]
+  if [ -e ${dirConfig}$config.post ]
   then
-    echo "${prefix}> Execution post actions.."
-    sh "${dirConfig}${line}.post"
+    echo "[$config] Executing post actions."
+    ( sh "${dirConfig}$config.post" )
   fi
-
-fi
-done < $pathConfig
-echo "All dotfiles installed"
+done
