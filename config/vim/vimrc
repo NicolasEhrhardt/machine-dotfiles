@@ -209,6 +209,7 @@ set mouse=a   " mouse control
 set invpaste  " fix indent pasting
 set nopaste   " to avoid problems with plugins
 set number    " display line numbers
+set hlsearch  " highlight search results
 
 set expandtab " tab creates spaces instead of \t
 set ai        " autoindent
