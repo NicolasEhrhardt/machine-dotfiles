@@ -170,6 +170,12 @@ Bundle 'JuliaLang/julia-vim'
 
 " -------- Vim apps ----------
 
+Plugin 'vimoutliner/vimoutliner'
+""""""""""""""""""""""""""""""""
+" > Outliner for vim
+let maplocalleader = ',,'
+""""""""""""""""""""""""""""""""
+
 " ---------- Themes ----------
 
 " > Color scheme for vim
@@ -217,3 +223,5 @@ set ai        " autoindent
 set ts=2      " tabstop: number of characters of a tab
 set sw=2      " shiftwidth: number of characters when using expandtab
 set sts=2     " softtabstop:
+filetype plugin indent on
+syntax on
