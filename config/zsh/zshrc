@@ -61,7 +61,7 @@ export KEYTIMEOUT=1
 # -------------------------------------------------------------------
 
 ## Tmux with colors!
-alias tmux='tmux -2'
+alias tmux='tmux2 -2'
 
 ## Funcions
 
