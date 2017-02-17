@@ -25,18 +25,8 @@ DISABLE_AUTO_UPDATE=true
 
 # Use vim shortcuts for line edits.
 bindkey -v
-
-# Function to display NORMAL in front of prompt when editing command.
-VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-# This function only works with the 'bureau' theme or forked.
-function zle-line-init zle-keymap-select {
-  PROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}> $_LIBERTY "
-  zle reset-prompt
-}
-
-# Make sure that the above function is called everytime normal mode is started.
-zle -N zle-line-init
-zle -N zle-keymap-select
+# Reduce delay to .1s for switching modes.
+export KEYTIMEOUT=1
 
 # Use vim cli mode.
 bindkey '^P' up-history
